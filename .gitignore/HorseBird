@@ -1,0 +1,118 @@
+import java.util.*;
+
+interface Animal
+{
+		public void Can();
+		public void talk();
+
+
+}
+
+class Horse implements Animal
+{
+	int legs=4;
+	private String s;
+	private String t;
+	public void Can()
+	{
+		System.out.println(s);
+	}
+	public void talk()
+	{
+		System.out.println(t);
+	}
+
+	Horse(String s,String t)
+	{
+		this.s=s;
+		this.t=t;
+	}
+
+	void MyHorseproperty()
+	{
+		System.out.println("Horse property");
+	}
+}
+
+class Bird implements Animal
+{
+	int legs=2;
+	private String s;
+	private String t;
+	Bird(String s,String t)
+	{
+		this.s=s;
+		this.t=t;
+	}
+	public void Can()
+	{
+		System.out.println(s);
+	}
+
+	public void talk()
+	{
+		System.out.println(t);
+	}
+
+	void MyBirdproperty()
+	{
+		System.out.println("Bird property");
+	}
+}
+
+class HorseBird implements Animal{
+
+	private Bird b;
+	private Horse h;
+	private legs=2;
+
+	HorseBird(Bird b,Horse h)
+	{
+		this.b=b;
+		this.h=h;
+	}
+
+	public void Can()
+	{
+		System.out.println("Run and Fly");
+	}
+	public void talk()
+	{
+		System.out.println("yyyyy");
+	}
+	void MyBirdproperty()
+	{
+		b.MyBirdproperty();
+	}
+	void MyHorseproperty()
+	{
+		h.MyHorseproperty();
+	}
+}
+
+class Main
+{
+	public static void main(String[] args)
+	{
+		Bird b = new Bird("fly","xxx");
+		Horse h =new Horse("run","nei ");
+		b.Can();
+		System.out.println(b.legs);
+		b.talk();
+
+		h.Can();
+		h.talk();
+
+		System.out.println(h.legs);
+
+		HorseBird hb=new HorseBird(b,h);
+
+		hb.Can();
+		hb.talk();
+		hb.MyBirdproperty();
+		hb.MyHorseproperty();
+
+
+
+	}
+}
